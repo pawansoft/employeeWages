@@ -1,2 +1,8 @@
-read -p "Enter your name" name
-echo " Welcome to employee wage computation program $name hii"
+isPresent=1
+randomCheck=$(( RANDOM%2 ))
+if [ $isPresent -eq $randomCheck ]
+then
+        echo "Employee uis present"
+else
+        echo "Not presnet"
+fi
