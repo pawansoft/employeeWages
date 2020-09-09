@@ -28,8 +28,19 @@ do
 
 	esac
 done
-	PART_TIME_SAL=$(($presentHour * $WAGE_PER_HOUR))
-	totalSal=$(($day * $FULL_DAY_HOUR * $WAGE_PER_HOUR))
-	echo "Salary of part time is : $PART_TIME_SAL : Hours = $presentHour"
-	echo "Monthly wages :  $totalSal : day = $day"
 
+function Hours()
+{
+	day=$1
+	hour=$2
+	workHour=$((day * 8 + hour))
+
+	return $workHour
+}
+Hours $day $presentHour
+retHour=$?
+
+#function CalculateSal()
+#{
+#}
+echo $retHour
