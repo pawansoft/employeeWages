@@ -8,19 +8,19 @@ countAb=0
 presentHour=0;
 
 	att=$((RANDOM%3))
-	echo $att
-	if [ $att -eq 0 ]
-	then
+	case $att in
+	"1")
 		echo "Absent"
-	elif [ $att -eq 2 ]
-	then
+		;;
+	"2")
 		echo "Part Time"
 		presentHour=$((presentHour + 8))
 		totalSal=$((totalSal + $presentHour * $WAGE_PER_HOUR))
+		;;
 		
-	else
+	*)
 		echo "Present"
 		totalSal=$((totalSal + $FULL_DAY_HOUR * $WAGE_PER_HOUR))
-	fi
+	esac
 	echo "$totalSal"
 
