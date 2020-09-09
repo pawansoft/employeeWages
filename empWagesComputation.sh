@@ -1,17 +1,19 @@
 #!/bin/bash
-
+FULL_DAY_HOUR=8;
+WAGE_PER_HOUR=20;
+totalSal=0
 countPresent=0;
 countAb=0
-read -p "Enter the days to check the attendance" days;
-for (( i=0; i <= $days; i++ ))
-do
+
 	att=$((RANDOM%2))
+	echo $att
 	if [ $att -eq 0 ]
 	then
-		countAb=$((countAb + 1))
+		echo "Absent"
+		
 	else
-		countPresent=$((countPresent + 1))
+		echo "Present"
+		totalSal=$((totalSal + $FULL_DAY_HOUR * $WAGE_PER_HOUR))
 	fi
-done
-echo "Present Days : $countPresent"
-echo "Absent Days : $countAb" 
+	echo "$totalSal"
+
